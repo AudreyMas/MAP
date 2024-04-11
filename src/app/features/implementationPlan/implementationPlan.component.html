@@ -1,0 +1,52 @@
+<eui-page>
+    <eui-page-header
+        label="Contract"
+        subLabel="Implementation Plan-DIGIT.A2
+        "
+        labelTooltip="Page title tooltip text..."
+        subLabelTooltip="Page sub-title tooltip text..."
+        [isCollapsible]="true"
+        [isCollapsed]="false"
+        [collapsedLabel]="'Collapse'"
+        [expandedLabel]="'Expand'"
+    >
+        <eui-page-header-body class="eui-u-flex eui-u-flex-between">
+            <div>
+                <span euiLabel euiSecondary euiSizeS>Entity id</span><br />
+                <span class="eui-u-font-s eui-u-font-bold"
+                    >17/07/2020, 02:07:30 PM</span
+                >
+            </div>
+            <div>
+                <span euiLabel euiSecondary euiSizeS>Last update</span><br />
+                <span class="eui-u-font-s eui-u-font-bold"
+                    >Generic User w0501075</span
+                >
+            </div>
+        </eui-page-header-body>
+        <eui-page-header-action-items>
+            <button euiButton euiInfo euiOutline> 
+                <span euiLabel>Menu</span>
+                <eui-icon-svg icon="eui-ellipsis-vertical"></eui-icon-svg>
+            </button>
+        </eui-page-header-action-items>
+    </eui-page-header>
+    <eui-page-content>
+        <eui-page-columns>
+            <eui-page-column label="Navigation menu" size="2xl" isCollapsible="true">
+                <eui-page-column-body>
+                    <eui-sidebar-menu
+                        [items]="sidebarItems"
+                        [hasIcons]="true"
+                        (itemClicked)="onSelectSidebarItem($event)"
+                    ></eui-sidebar-menu>
+                </eui-page-column-body>
+            </eui-page-column>
+            <eui-page-column>
+                <eui-page-column-body>
+                    <router-outlet></router-outlet>
+                </eui-page-column-body>
+            </eui-page-column>
+        </eui-page-columns>
+    </eui-page-content>
+</eui-page>

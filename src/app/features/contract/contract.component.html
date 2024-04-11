@@ -1,0 +1,81 @@
+<eui-page>
+    <eui-page-header
+        label="Contract"
+        subLabel="Reniew poels DIGITTMII-008053
+        "
+        labelTooltip="Page title tooltip text..."
+        subLabelTooltip="Page sub-title tooltip text..."
+        [isCollapsible]="true"
+        [isCollapsed]="false"
+        [collapsedLabel]="'Collapse'"
+        [expandedLabel]="'Expand'"
+    >
+        <eui-page-header-body class="eui-u-flex">
+            <div class="eui-u-mr-4xl">
+                <span euiLabel euiSecondary euiSizeS>Entity id</span><br />
+                <span class="eui-u-font-s eui-u-font-bold"
+                    >17/07/2020, 02:07:30 PM</span
+                >
+            </div>
+            <div class="eui-u-mr-4xl">
+                <span euiLabel euiSecondary euiSizeS>Last update</span><br />
+                <span class="eui-u-font-s eui-u-font-bold"
+                    >Generic User w0501075</span
+                >
+            </div>
+            <div>
+                <span euiLabel euiSecondary euiSizeS>Status</span><br />
+                <eui-chip
+                    euiRounded
+                    euiOutline
+                    euiInfo
+                    euiSizeS
+                    euiTooltip="Status"
+                >
+                    <span euiLabel>Plane</span></eui-chip
+                >
+            </div>
+        </eui-page-header-body>
+        <eui-page-header-action-items>
+            <button euiButton euiPrimary>
+                <span euiLabel>Implementation plan</span>
+            </button>
+            <eui-dropdown>
+                <button euiButton euiOutline euiPrimary>
+                    <span euiLabel>Menu</span>
+                    <eui-icon-svg icon="eui-ellipsis-vertical"></eui-icon-svg>
+                </button>
+                <eui-dropdown-content>
+                    <button
+                        euiDropdownItem
+                        [disabled]="item?.disabled"
+                        *ngFor="let item of listItems"
+                        (click)="onListItemClicked(item)"
+                    >
+                        <span euiLabel class="eui-u-ml-xs">{{
+                            item.label
+                        }}</span>
+                    </button>
+                </eui-dropdown-content>
+            </eui-dropdown>
+        </eui-page-header-action-items>
+    </eui-page-header>
+    <eui-page-content>
+        <eui-page-columns>
+            <eui-page-column label="Navigation menu" size="2xl" isCollapsible="true">
+                <eui-page-column-body>
+                    <eui-sidebar-menu
+                        [items]="sidebarItems"
+                        [hasIcons]="true"
+                        (itemClicked)="onSelectSidebarItem($event)"
+                    ></eui-sidebar-menu>
+                </eui-page-column-body>
+            </eui-page-column>
+            <eui-page-column>
+                <eui-page-column-body>
+                    <router-outlet></router-outlet>
+                </eui-page-column-body>
+            </eui-page-column>
+        </eui-page-columns>
+    </eui-page-content>
+</eui-page>
